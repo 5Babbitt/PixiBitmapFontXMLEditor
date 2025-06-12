@@ -1,0 +1,101 @@
+:root {
+    /* debug colours */
+    --bgCol: #000000;
+    --headerCol: cadetblue;
+    --xmlPanelCol: #1d1d1d;
+    --xmlTreePanelCol: #272727;
+    --textureAtlasPanelCol: #373737;
+    --pixiPanelCol: #b13880;
+    --filePanelCol: #333333;
+    --textInputPanelCol: #c6c6c6;
+}
+
+* {
+    color: white;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bgCol);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    padding: 1rem;
+    background-color: var(--headerCol);
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+.leftPanel, .mainPanel, .rightPanel {
+    display: flex;
+    flex-direction: column;
+}
+
+.leftPanel {
+    background-color: lightslategray;
+    flex: 1;
+}
+
+.mainPanel {
+    background-color: lightsteelblue;
+    flex: 3;
+}
+
+.rightPanel {
+    background-color: darkcyan;
+    flex: 1;
+}
+
+.panel {
+    padding: 1rem;
+}
+
+.fileManagementPanel {
+    background-color: var(--filePanelCol);
+}
+
+.pixiViewPanel {
+    background-color: var(--pixiPanelCol);
+    flex: 1;
+}
+
+.xmlEditorPanel {
+    background-color: var(--xmlPanelCol);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.xmlEditorPanel textarea {
+    background-color: var(--xmlPanelCol);
+    display: flex;
+    flex: 1;
+    resize: none;
+}
+
+.textureAtlasPanel {
+    background-color: var(--textureAtlasPanelCol);
+    flex: 1;
+}
+
+.xmlTreeViewPanel {
+    background-color: var(--xmlTreePanelCol);
+    flex: 2;
+}
+
+.textInputPanel {
+    background-color: var(--textInputPanelCol);
+}
+
