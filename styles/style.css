@@ -1,13 +1,13 @@
 :root {
     /* debug colours */
     --bgCol: #000000;
-    --headerCol: cadetblue;
-    --xmlPanelCol: #1d1d1d;
-    --xmlTreePanelCol: #272727;
-    --textureAtlasPanelCol: #373737;
-    --pixiPanelCol: #b13880;
-    --filePanelCol: #333333;
-    --textInputPanelCol: #c6c6c6;
+    --headerCol: #123749;
+    --xmlCol: #1d1d1d;
+    --xmlTreeCol: #272727;
+    --textureAtlasCol: #00583b;
+    --pixiCol: #002f2f;
+    --fileCol: #333333;
+    --textInputCol: #c6c6c6;
 }
 
 * {
@@ -23,12 +23,14 @@ body {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    max-height: 100vh;
 }
 
 .header {
     display: flex;
-    padding: 1rem;
+    padding: 0 1em;
     background-color: var(--headerCol);
+    justify-content: space-between;
 }
 
 .content {
@@ -38,64 +40,78 @@ body {
     flex: 1;
 }
 
-.leftPanel, .mainPanel, .rightPanel {
+.left, .center, .right {
     display: flex;
     flex-direction: column;
 }
 
-.leftPanel {
-    background-color: lightslategray;
-    flex: 1;
-}
-
-.mainPanel {
-    background-color: lightsteelblue;
-    flex: 3;
-}
-
-.rightPanel {
-    background-color: darkcyan;
-    flex: 1;
+.center {
+    flex: 2;
 }
 
 .panel {
     padding: 1rem;
-}
-
-.fileManagementPanel {
-    background-color: var(--filePanelCol);
-}
-
-.pixiViewPanel {
-    background-color: var(--pixiPanelCol);
     flex: 1;
 }
 
-.xmlEditorPanel {
-    background-color: var(--xmlPanelCol);
+.side {
+    flex: 1;
+    min-width: 384px;
+}
+
+.right {
+    flex: 0;
+}
+
+.inputOutputData {
+    display: flex;
+    background-color: var(--fileCol);
+    flex-direction: column;
+}
+
+.inputPanel {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pixiView {
+    background-color: var(--pixiCol);
+    display: flex;
+    flex: 1;
+    max-height: 360px;
+}
+
+.xmlEditor {
+    background-color: var(--xmlCol);
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.xmlEditorPanel textarea {
-    background-color: var(--xmlPanelCol);
+.xmlEditor textarea {
+    background-color: var(--xmlCol);
     display: flex;
     flex: 1;
     resize: none;
 }
 
-.textureAtlasPanel {
-    background-color: var(--textureAtlasPanelCol);
+.textureAtlas {
+    background-color: var(--textureAtlasCol);
+    display: flex; 
+    padding: 1em;
     flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 
-.xmlTreeViewPanel {
-    background-color: var(--xmlTreePanelCol);
-    flex: 2;
+.textureAtlas img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 2px 2px 0.5rem 0.0625rem var(--bgCol);
 }
 
-.textInputPanel {
-    background-color: var(--textInputPanelCol);
+button, input[type="text"], input[type="number"], select, option {
+    color: var(--bgCol);
 }
 
