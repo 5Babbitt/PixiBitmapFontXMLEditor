@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Varela+Round&display=swap');
 
 :root {
     --bg-dark: oklch(0.1 0 139);
@@ -9,6 +9,9 @@
     --highlight: oklch(0.5 0 139);
     --border: oklch(0.4 0 139);
     --border-muted: oklch(0.3 0 139);
+
+    --display-font: 'Varela Round', sans-serif;
+    --text-font: 'Nunito', sans-serif;
 }
 
 * {
@@ -28,13 +31,14 @@ body {
 }
 
 .header {
-    background-color: var(--bg-light);
+    background: linear-gradient(var(--bg), var(--bg-light));
     display: flex;
     padding: 0.5em 2rem;
     justify-content: space-between;
     text-shadow: var(--text) 0 0 0.5em;
     border-bottom: solid var(--border) 1px;
     box-shadow: var(--border-muted) 0 0.125em 0.5em;
+    font-family: var(--display-font);
 }
 
 .content {
