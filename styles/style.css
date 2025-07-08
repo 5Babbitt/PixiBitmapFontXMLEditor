@@ -56,11 +56,6 @@ body {
 
 .side {
     flex: 1;
-    min-width: 384px;
-}
-
-.right {
-    flex: 0;
 }
 
 .inputOutputData {
