@@ -16,4 +16,5 @@ As of right now (06/07/2025), the project still has some features to be added, i
 - visual document editor
 - visualise character boxes on texture atlas
 - support for newer versions of PixiJS
+- basic calculator
 - and more...
