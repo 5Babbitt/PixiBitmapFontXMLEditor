@@ -187,8 +187,8 @@ button:hover, input:hover {
     background-color: var(--border-muted);
     border: solid 1px var(--border);
     border-radius: 5px;
-    box-shadow: 0 0 10px var(--text-muted);
-    color: var(--primary);
+    box-shadow: 0 0 10px var(--secondary);
+    color: var(--secondary);
 }
 
 button:active, input:active {
@@ -196,6 +196,6 @@ button:active, input:active {
     background-color: var(--secondary);
     border: solid 1px var(--primary);
     border-radius: 5px;
-    box-shadow: 0 0 10px var(--primary);
-
+    box-shadow: 0 0 10px var(--primary);    
+    color: var(--bg-dark);
 }
