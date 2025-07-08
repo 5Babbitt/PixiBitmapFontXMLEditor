@@ -17,6 +17,8 @@
 
     --display-font: 'Varela Round', sans-serif;
     --text-font: 'Nunito', sans-serif;
+
+    --gap-size: 7px;
 }
 
 * {
@@ -54,18 +56,18 @@ body {
 .content {
     font-family: var(--text-font);
     font-size: 0.875em;
-    padding: 3px;
+    padding: var(--gap-size);
     display: flex;
     flex-wrap: nowrap;
     flex: 1;
-    gap: 3px;
+    gap: var(--gap-size);
 }
 
 .left, .center, .right {
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    gap: 3px;
+    gap: var(--gap-size);
 }
 
 .left, .right {
@@ -104,9 +106,9 @@ body {
 .window-content {
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: var(--gap-size);
     flex: 1;
-    gap: 5px;
+    gap: var(--gap-size);
 }
 
 .maximize {
@@ -114,7 +116,6 @@ body {
 }
 
 .pixiView {
-    background-color: var(--secondary);
     display: flex;
     flex: 1;
     max-height: 360px;
@@ -130,7 +131,7 @@ body {
 }
 
 .texture-atlas {
-    padding: 1rem;
+    padding: var(--gap-size);
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -138,7 +139,7 @@ body {
 
 .texture-atlas img {
     align-self: center;
-    padding: 1em;
+    padding: var(--gap-size);
     border-radius: 5px;
     max-width: 100%;
     max-height: 100%;
