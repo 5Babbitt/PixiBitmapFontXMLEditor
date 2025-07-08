@@ -41,8 +41,16 @@ const pixiUtils = new PixiUtils(domUtils.inputs.colour.value)
 
 // Input Events
 domUtils.inputs.submit.addEventListener('click', submitInputValues)
+
+//Update
 domUtils.inputs.update.addEventListener('click', updateBitmapText)
+domUtils.inputs.text.addEventListener('input', updateBitmapText)
+domUtils.inputs.size.addEventListener('input', updateBitmapText)
+domUtils.inputs.colour.addEventListener('input', updateBitmapText)
+
+//Export
 domUtils.inputs.export.addEventListener('click', exportXMLFile)
+
 
 async function startPixi() {
     await pixiUtils.init(domUtils.inputs.colour.value)
@@ -71,9 +79,8 @@ async function updateBitmapText() {
     const fontName = await pixiUtils.loadBitmapFont(xmlDocument, imgURL)
     const text = domUtils.inputs.text.value
     const fontSize = domUtils.inputs.size.value
-    const fontAlignment = domUtils.inputs.alignment.value
 
-    await pixiUtils.addBitmapText(text, fontName, fontSize, fontAlignment)
+    await pixiUtils.addBitmapText(text, fontName, fontSize)
 }
 
 function exportXMLFile() {

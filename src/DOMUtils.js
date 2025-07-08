@@ -5,7 +5,6 @@ export class DOMUtils {
             xml: document.getElementById('xmlInput'),
             colour: document.getElementById('colourInput'),
             text: document.getElementById('textInput'),
-            alignment: document.getElementById('alignInput'),
             size: document.getElementById('sizeInput'),
             submit: document.getElementById('submit'),
             update: document.getElementById('update'),

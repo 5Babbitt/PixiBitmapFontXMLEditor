@@ -1,31 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Varela+Round&display=swap');
-
 :root {
-    --bg-dark: oklch(0.1 0 139);
-    --bg-darkish: oklch(0.125 0 139);
-    --bg: oklch(0.15 0 139);
-    --bg-lightish: oklch(0.175 0 139);
-    --bg-light: oklch(0.2 0 139);
-    --text: oklch(0.96 0 139);
-    --text-muted: oklch(0.76 0 139);
-    --highlight: oklch(0.5 0 139);
-    --border: oklch(0.4 0 139);
-    --border-muted: oklch(0.3 0 139);
-
-    --primary: oklch(0.76 0.2 145);
-    --secondary: oklch(0.60 0.2 160);
-
-    --display-font: 'Varela Round', sans-serif;
-    --text-font: 'Nunito', sans-serif;
+    /* debug colours */
+    --bgCol: #000000;
+    --headerCol: #123749;
+    --xmlCol: #1d1d1d;
+    --xmlTreeCol: #272727;
+    --textureAtlasCol: #00583b;
+    --pixiCol: #002f2f;
+    --fileCol: #333333;
+    --textInputCol: #c6c6c6;
 }
 
 * {
-    color: var(--text);
+    color: white;
     box-sizing: border-box;
 }
 
 body {
-    background-color: var(--bg-dark);
+    background-color: var(--bgCol);
     padding: 0;
     margin: 0;
     display: flex;
@@ -35,144 +26,87 @@ body {
     max-height: 100vh;
 }
 
-.header a {
-    color: var(--primary);
-    text-shadow: var(--primary) 0 0 0.5em;
-}
-
 .header {
-    flex: 0;
-    background: linear-gradient(var(--bg), var(--bg-lightish));
     display: flex;
-    padding: 0.5em 2rem;
+    padding: 0 1em;
+    background-color: var(--headerCol);
     justify-content: space-between;
-    text-shadow: var(--text) 0 0 0.5em;
-    font-family: var(--display-font);
-    border-bottom: solid 1px var(--border);
 }
 
 .content {
-    font-family: var(--text-font);
-    font-size: 0.875em;
-    padding: 3px;
     display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     flex: 1;
-    gap: 3px;
 }
 
 .left, .center, .right {
     display: flex;
     flex-direction: column;
-    border-radius: 5px;
-    gap: 3px;
-}
-
-.left, .right {
-    flex: 1;
 }
 
 .center {
     flex: 2;
 }
 
+.panel {
+    padding: 1rem;
+    flex: 1;
+}
+
 .side {
     flex: 1;
-    min-width: 384px;
 }
 
-.window {
-    flex: 0;
-    background-color: var(--bg-light);
-    border: solid 1px var(--border-muted);
-    border-radius: 5px;
-    flex-direction: column;
-}
-
-.window-header {
-    flex: 0;
-    background: linear-gradient(var(--bg), var(--bg-lightish));
-    text-shadow: var(--text) 0 0 0.25em;
-    font-family: var(--display-font);
-    font-size: small;
-    padding: 3px 10px;
-    border-bottom: solid 1px var(--border-muted);
-}
-
-.window-content {
+.inputOutputData {
     display: flex;
+    background-color: var(--fileCol);
     flex-direction: column;
-    padding: 5px;
-    flex: 1;
-    gap: 5px;
 }
 
-.maximize {
-    flex: 1;
-}
-
-.pixiView {
-    flex: 1;
-    max-height: 360px;
-}
-
-.input-panel {
+.inputPanel {
     display: flex;
     justify-content: space-between;
 }
 
-.checkerboard {
-    background: repeating-conic-gradient(var(--border) 0% 25%, var(--highlight) 0% 50%) 50% / 10rem 10rem;
-}
-
-.texture-atlas {
-    padding: 1rem;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-
-.texture-atlas img {
-    align-self: center;
-    padding: 1em;
-    border-radius: 5px;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    box-shadow: 0 0 1rem 0.25rem var(--bg-dark);
-}
-
-.texture-viewer {
-    margin-top: auto;
-    resize: vertical;
-    overflow: visible;
+.pixiView {
+    background-color: var(--pixiCol);
+    display: flex;
+    flex: 1;
+    max-height: 360px;
 }
 
 .xmlEditor {
+    background-color: var(--xmlCol);
     display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .xmlEditor textarea {
-    background-color: var(--bg-darkish);
-    border: solid 1px var(--border-muted);
+    background-color: var(--xmlCol);
+    display: flex;
     flex: 1;
     resize: none;
-    border-radius: 5px;
 }
 
-.xmlEditor textarea:focus {
-    outline: none;
-    background-color: var(--bg-darkish);
-    border: solid 2px var(--highlight);
+.textureAtlas {
+    background-color: var(--textureAtlasCol);
+    display: flex; 
+    padding: 1em;
     flex: 1;
-    resize: none;
-    border-radius: 5px;
-    box-shadow: 0 0 10px var(--text-muted);
+    justify-content: center;
+    align-items: center;
 }
 
-button, input[type="text"], input[type="number"], input[type="color"], input[type="file"] {
-    font-family: var(--display-font);
-    background-color: var(--border-muted);
-    border: solid 1px var(--border);
-    border-radius: 5px;
+.textureAtlas img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 2px 2px 0.5rem 0.0625rem var(--bgCol);
 }
+
+button, input[type="text"], input[type="number"] {
+    color: var(--bgCol);
+}
+

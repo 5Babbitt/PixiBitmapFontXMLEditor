@@ -16,11 +16,10 @@ export class PixiUtils {
         this.canvas.appendChild(this.app.view)
     }
 
-    async addBitmapText(text, bitmapFont, fontSize = 32, alignment = 'left') {
+    async addBitmapText(text, bitmapFont, fontSize = 32) {
         const bitmapFontText = new BitmapText(text, {
             fontName: bitmapFont,
             fontSize: fontSize,
-            align: alignment,
         })
 
         this.app.stage.addChild(this.centerComponent(bitmapFontText))

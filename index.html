@@ -7,49 +7,80 @@
 </head>
 <body>
     <div class="header">
-        <h3>Pixi Bitmap Text Font Editor</h3>
-        <h3>Tool by <a href="https://github.com/5Babbitt" target="_blank">5Babbitt</a></h3>
+        <b>Pixi BitmapFont XML Editor</b>
+        <b>Tool by <a href="https://github.com/5Babbitt" target="_blank">5Babbitt</a></b>
     </div>
     <div class="content">
         <div class="left side">
-            <div class="inputOutputData panel">
-                <div class="inputPanel">
-                    <label for="textureAtlasInput">Upload Texture Atlas: </label>
-                    <input type="file" class="fileInput" id="textureAtlasInput" accept="image/png">
+            <div class="window">
+                <div class="window-header"><b>File Settings</b></div>
+                <div class="window-content">
+                    <div class="input-panel">
+                        <label for="textureAtlasInput">Upload Texture Atlas: </label>
+                        <input type="file" class="fileInput" id="textureAtlasInput" accept="image/png">
+                    </div>
+                    <div class="input-panel">
+                        <label for="xmlInput">Upload XML file:</label>
+                        <input type="file" class="fileInput" id="xmlInput" accept="text/xml">
+                    </div>
+                    <button id="submit">Submit</button>
+                    <button id="export">Export XML file</button>
                 </div>
-                <div class="inputPanel">
-                    <label for="xmlInput">Upload XML file:</label>
-                    <input type="file" class="fileInput" id="xmlInput" accept="text/xml">
-                </div>
-                <div class="inputPanel">
-                    <label for="colourInput">Background Colour: </label>
-                    <input type="color" id="colourInput" value="#772277">
-                </div>
-                <div class="inputPanel">
-                    <label for="textInput">Text Input:</label>
-                    <input type="text" id="textInput" value="123456789., ">
-                </div>
-                <div class="inputPanel">
-                    <label for="sizeInput">Font Size:</label>
-                    <input type="number" id="sizeInput" value=36>
-                </div>
-                <button class="submitButton" id="submit">Submit</button>
-                <button class="submitButton" id="update">Update BitmapFont</button>
-                <button class="exportButton" id="export">Export XML file</button>
             </div>
-            <div class="textureAtlas">
-                <img id="textureAtlasOutput" src="./assets/desyrel.png" alt="texture atlas image here">
+            <div class="window">
+                <div class="window-header"><b>Text Settings</b></div>
+                <div class="window-content">
+                    <div class="input-panel">
+                        <label for="colourInput">Background Colour: </label>
+                        <input type="color" id="colourInput" value="#008050">
+                    </div>
+                    <div class="input-panel">
+                        <label for="textInput">Text Input:</label>
+                        <input type="text" id="textInput" value="0123456789,.">
+                    </div>
+                    <div class="input-panel">
+                        <label for="sizeInput">Font Size:</label>
+                        <input type="number" id="sizeInput" value=36>
+                    </div>
+                </div>
+            </div>
+            <div class="window">
+                <div class="window-header"><b>Counter Settings</b></div>
+                <div class="window-content">
+                    WIP Content
+                </div>
+            </div>
+            <div class="texture-viewer window">
+                <div class="window-header"><b>Texture Atlas</b></div>
+                <div class="texture-atlas window-content">
+                    <img class="checkerboard" id="textureAtlasOutput" src="" alt="texture atlas image here">
+                </div>
             </div>
         </div>
         <div class="center">
-            <div class="pixiView" id="pixiContainer"></div>
-            <div class="xmlEditor panel">
-                <label for="xmlEditorTextArea">xml editor:</label>
-                <textarea name="xmlTextArea" id="xmlEditorTextArea" spellcheck="false" cols="30" rows="10"></textarea>
+            <div class="pixiView window">
+                <div class="window-header"><b>Pixi View</b></div>
+                <div class="window-content">
+                    <div class="pixiView" id="pixiContainer"></div>
+                </div>
+            </div>
+            <div class="xmlEditor window maximize">
+                <div class="window-header">
+                    <b>XML Editor</b>
+                    <button id="update">Update BitmapFont</button>
+                </div>
+                <div class="window-content">
+                    <textarea name="xmlTextArea" id="xmlEditorTextArea" spellcheck="false" cols="30" rows="10"></textarea>
+                </div>
             </div>
         </div>
         <div class="right side">
-            WIP
+            <div class="window maximize">
+                <div class="window-header"><b>Visual XML Editor</b></div>
+                <div class="window-content">
+                    WIP Content
+                </div>
+            </div>
         </div>
     </div>
     <script src="./src/main.js" type="module"></script>
