@@ -9,8 +9,6 @@ As of right now (06/07/2025), the project still has some features to be added, i
 - syntax highlighting
 - xml validation (To check if what you've typed in the editor is valid)
 - Help icon with instructions
-- dynamic text controls
-    - configurable counter
 - visual document editor
 - visualise character boxes on texture atlas
 - support for newer versions of PixiJS
