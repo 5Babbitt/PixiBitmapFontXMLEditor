@@ -1,6 +1,4 @@
 # Pixi BitmapFont XML Editor
-Check it out here: https://5babbitt.github.io/PixiBitmapFontXMLEditor/
-
 ## Description
 **Pixi BitmapFont XML Editor** is a mouthful... and an online tool that allows you to import a png and an xml file, create a BitmapFont and display a [PixiJS v7](https://pixijs.com) BitmapText component, and edit and export the xml configuration in the onsite editor panel.
 
