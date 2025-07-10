@@ -55,6 +55,8 @@ domUtils.buttons.export.addEventListener('click', exportXMLFile)
 domUtils.buttons.startCountBtn.addEventListener('click', startCounter)
 domUtils.buttons.stopCountBtn.addEventListener('click', stopCounter)
 
+document.addEventListener('DOMContentLoaded', domUtils.collapseWindow)
+
 async function startPixi() {
     await pixiUtils.init(domUtils.inputs.colour.value)
 }

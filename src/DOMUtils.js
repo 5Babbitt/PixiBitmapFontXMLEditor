@@ -34,4 +34,15 @@ export class DOMUtils {
     showElement(element) {
         element.classList.remove('hidden')
     }
+
+    collapseWindow() {
+        const windowHeaders = document.querySelectorAll('.window-header')
+
+        windowHeaders.forEach(header => {
+            header.addEventListener('click', function () {
+                const window = this.closest('.window')
+                window.classList.toggle('collapsed')
+            })
+        })
+    }
 }
