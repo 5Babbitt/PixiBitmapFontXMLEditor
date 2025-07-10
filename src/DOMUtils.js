@@ -6,14 +6,29 @@ export class DOMUtils {
             colour: document.getElementById('colourInput'),
             text: document.getElementById('textInput'),
             size: document.getElementById('sizeInput'),
-            submit: document.getElementById('submit'),
-            update: document.getElementById('update'),
-            export: document.getElementById('export'),
+            decimals: document.getElementById('decimalInput'),
+            prefix: document.getElementById('prefixInput'),
         }
 
         this.outputs = {
             xml: document.getElementById('xmlEditorTextArea'),
             textureAtlas: document.getElementById('textureAtlasOutput'),
         }
+
+        this.buttons = {
+            startCountBtn: document.getElementById('start-counter'),
+            stopCountBtn: document.getElementById('stop-counter'),
+            submit: document.getElementById('submit'),
+            update: document.getElementById('update'),
+            export: document.getElementById('export'),
+        }
+    }
+
+    hideElement(element) {
+        element.classList.add('hidden')
+    }
+
+    showElement(element) {
+        element.classList.remove('hidden')
     }
 }

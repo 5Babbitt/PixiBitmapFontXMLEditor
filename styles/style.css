@@ -48,7 +48,6 @@ body {
     display: flex;
     padding: 0.5em 2rem;
     justify-content: space-between;
-    text-shadow: var(--text) 0 0 0.5em;
     font-family: var(--display-font);
     border-bottom: solid 1px var(--border);
 }
@@ -70,17 +69,17 @@ body {
     gap: var(--gap-size);
 }
 
-.left, .right {
-    flex: 1;
-}
-
 .center {
     flex: 2;
 }
 
-.side {
+.side, .left, .right{
     flex: 1;
     min-width: 384px;
+}
+
+.hidden {
+    display: none;
 }
 
 .window {
@@ -95,7 +94,6 @@ body {
     display: flex;
     flex: 0;
     background: linear-gradient(var(--bg), var(--bg-lightish));
-    text-shadow: var(--text) 0 0 0.25em;
     font-family: var(--display-font);
     font-size: small;
     padding: 3px 10px;
@@ -109,10 +107,6 @@ body {
     padding: var(--gap-size);
     flex: 1;
     gap: var(--gap-size);
-}
-
-.maximize {
-    flex: 1;
 }
 
 .pixiView {
@@ -168,21 +162,40 @@ body {
 .xmlEditor textarea:focus {
     outline: none;
     background-color: var(--bg-darkish);
-    border: solid 2px var(--highlight);
+    border: solid 2px var(--primary);
     flex: 1;
     resize: none;
     border-radius: 5px;
-    box-shadow: 0 0 10px var(--text-muted);
 }
 
-button, input[type="text"], input[type="number"], input[type="color"], input[type="file"] {
+.double-input-panel, .double-input-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--gap-size);
+}
+
+.double-input-section label,  .double-input-section input{
+    min-width: 3em;
+    flex: 1
+}
+
+.maximize, select, label, input {
+    flex: 1
+}
+
+button {
+    min-width: 15em;
+}
+
+button, input[type="text"], input[type="number"], input[type="color"], input[type="file"], select {
     font-family: var(--display-font);
     background-color: var(--border-muted);
     border: solid 1px var(--border);
     border-radius: 5px;
 }
 
-button:hover, input:hover {
+button:hover, input:hover, select:hover {
     font-family: var(--display-font);
     background-color: var(--border-muted);
     border: solid 1px var(--border);
@@ -191,11 +204,19 @@ button:hover, input:hover {
     color: var(--secondary);
 }
 
-button:active, input:active {
+button:active, input:active, option:hover {
     font-family: var(--display-font);
     background-color: var(--secondary);
     border: solid 1px var(--primary);
     border-radius: 5px;
     box-shadow: 0 0 10px var(--primary);    
     color: var(--bg-dark);
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+}
+
+b {
+    text-shadow: var(--text) 0 0 5px;
 }

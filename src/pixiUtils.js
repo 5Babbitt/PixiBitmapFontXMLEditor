@@ -1,6 +1,10 @@
-import { Application, BitmapFont, BitmapText, Texture } from 'pixi.js'
+import { Application, BitmapFont, BitmapText, Texture, Ticker } from 'pixi.js'
 
 export class PixiUtils {
+    text
+    ticker
+    count = 0
+
     constructor() {
         this.canvas = document.getElementById('pixiContainer')
     }
@@ -14,15 +18,18 @@ export class PixiUtils {
         })
 
         this.canvas.appendChild(this.app.view)
+
+        this.ticker = new Ticker()
+        this.ticker.add(this.counter, this.ticker)
     }
 
     async addBitmapText(text, bitmapFont, fontSize = 32) {
-        const bitmapFontText = new BitmapText(text, {
+        this.text = new BitmapText(text, {
             fontName: bitmapFont,
             fontSize: fontSize,
         })
 
-        this.app.stage.addChild(this.centerComponent(bitmapFontText))
+        this.app.stage.addChild(this.centerComponent(this.text))
     }
 
     async loadBitmapFont(xmlDoc, imageURL) {
@@ -43,6 +50,8 @@ export class PixiUtils {
 
     clearCanvas() {
         this.app.stage.removeChildren()
+        this.text = undefined
+        this.ticker.stop()
     }
 
     updateBackgroundColor(color) {
@@ -51,5 +60,9 @@ export class PixiUtils {
 
     getApp() {
         return this.app
+    }
+
+    counter(ticker) {
+        this.count += ticker.deltaMS
     }
 }

@@ -29,26 +29,60 @@
                 </div>
             </div>
             <div class="window">
-                <div class="window-header"><b>Text Settings</b></div>
+                <div class="window-header"><b>Editor Settings</b></div>
                 <div class="window-content">
+                    <b>Pixi Canvas Settings</b>
                     <div class="input-panel">
                         <label for="colourInput">Background Colour: </label>
                         <input type="color" id="colourInput" value="#008050">
                     </div>
                     <div class="input-panel">
-                        <label for="textInput">Text Input:</label>
-                        <input type="text" id="textInput" value="0123456789,.">
+                        <label for="guideSelect">Canvas Guides: (WIP)</label>
+                        <select id="guideSelect">
+                            <option value="none">none</option>
+                            <option value="lines">lines</option>
+                            <option value="grid">grid</option>
+                        </select>
                     </div>
+                    <b>Text Settings</b>
                     <div class="input-panel">
                         <label for="sizeInput">Font Size:</label>
                         <input type="number" id="sizeInput" value=36>
                     </div>
+                    <div class="input-panel">
+                        <label for="textInput">Text Input:</label>
+                        <input type="text" id="textInput" value="0123456789,.">
+                    </div>
                 </div>
             </div>
             <div class="window">
-                <div class="window-header"><b>Counter Settings</b></div>
+                <div class="window-header"><b>Tools</b></div>
                 <div class="window-content">
-                    WIP Content
+                    <b>Countup Settings</b>
+                    <div class="double-input-panel">
+                        <div class="double-input-section">
+                            <label for="prefixInput">Prefix:</label>
+                            <input type="text" id="prefixInput" value="$">
+                        </div>
+                        <div class="double-input-section">
+                            <label for="decimalInput">Decimals:</label>
+                            <input type="number" id="decimalInput" value=2>
+                        </div>
+                    </div>
+                    <div class="input-panel">
+                        <label for="startInput">Start:</label>
+                        <input type="number" id="startInput" value=0>
+                    </div>
+                    <div class="input-panel">
+                        <label for="endInput">End:</label>
+                        <input type="number" id="endInput" value=1000000>
+                    </div>
+                    <div class="input-panel">
+                        <label for="rateInput">Count Rate:</label>
+                        <input type="number" id="rateInput" value=100>
+                    </div>
+                    <button id="start-counter">Start</button>
+                    <button class="hidden" id="stop-counter">Stop</button>
                 </div>
             </div>
             <div class="texture-viewer window">

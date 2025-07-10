@@ -40,17 +40,20 @@ const domUtils = new DOMUtils()
 const pixiUtils = new PixiUtils(domUtils.inputs.colour.value)
 
 // Input Events
-domUtils.inputs.submit.addEventListener('click', submitInputValues)
+domUtils.buttons.submit.addEventListener('click', submitInputValues)
 
 //Update
-domUtils.inputs.update.addEventListener('click', updateBitmapText)
+domUtils.buttons.update.addEventListener('click', updateBitmapText)
 domUtils.inputs.text.addEventListener('input', updateBitmapText)
 domUtils.inputs.size.addEventListener('input', updateBitmapText)
 domUtils.inputs.colour.addEventListener('input', updateBitmapText)
 
 //Export
-domUtils.inputs.export.addEventListener('click', exportXMLFile)
+domUtils.buttons.export.addEventListener('click', exportXMLFile)
 
+// Tools
+domUtils.buttons.startCountBtn.addEventListener('click', startCounter)
+domUtils.buttons.stopCountBtn.addEventListener('click', stopCounter)
 
 async function startPixi() {
     await pixiUtils.init(domUtils.inputs.colour.value)
@@ -89,6 +92,16 @@ function exportXMLFile() {
 
 function updateXMLData() {
     xmlData = domUtils.outputs.xml.value
+}
+
+function startCounter() {
+    domUtils.hideElement(domUtils.buttons.startCountBtn)
+    domUtils.showElement(domUtils.buttons.stopCountBtn)
+}
+
+function stopCounter() {
+    domUtils.hideElement(domUtils.buttons.stopCountBtn)
+    domUtils.showElement(domUtils.buttons.startCountBtn)
 }
 
 (async () => {
