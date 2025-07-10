@@ -58,6 +58,7 @@ body {
     padding: var(--gap-size);
     display: flex;
     flex-wrap: nowrap;
+    overflow: hidden;
     flex: 1;
     gap: var(--gap-size);
 }
@@ -76,6 +77,10 @@ body {
 .side, .left, .right{
     flex: 1;
     min-width: 384px;
+}
+
+.side {
+    overflow-y: hidden;
 }
 
 .hidden {
@@ -109,6 +114,8 @@ body {
     flex: 1;
     gap: var(--gap-size);
     resize: none;
+    min-height: 0; /* Allows flex items to shrink below content size */
+    overflow: hidden;
 }
 
 .pixiView {
