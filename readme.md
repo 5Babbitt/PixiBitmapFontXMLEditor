@@ -8,7 +8,6 @@ I made this tool for the tech artists at work because of the amount of time it t
 As of right now (06/07/2025), the project still has some features to be added, including: 
 - syntax highlighting
 - xml validation (To check if what you've typed in the editor is valid)
-- Help icon with instructions
 - visual document editor
 - visualise character boxes on texture atlas
 - support for newer versions of PixiJS
