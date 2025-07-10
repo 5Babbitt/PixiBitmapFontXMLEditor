@@ -105,6 +105,31 @@ body {
     padding: 3px 10px;
     border-bottom: solid 1px var(--border-muted);
     justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    align-items: center;
+}
+
+.window-header:hover {
+    background: linear-gradient(var(--bg-lightish), var(--bg-light));
+}
+
+.collapse-indicator {
+    font-size: 12px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.window.collapsed .collapse-indicator {
+    transform: rotate(-90deg);
+}
+
+.window.collapsed {
+    border-bottom: none;
+}
+
+.window.collapsed .window-header {
+    border-bottom: none;
 }
 
 .window-content {
@@ -114,7 +139,17 @@ body {
     flex: 1;
     gap: var(--gap-size);
     resize: none;
-    min-height: 0; /* Allows flex items to shrink below content size */
+    min-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+    max-height: 100%;
+    opacity: 1;
+}
+
+.window.collapsed .window-content {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 var(--gap-size);
     overflow: hidden;
 }
 
@@ -155,12 +190,19 @@ body {
 }
 
 .texture-viewer {
-    flex: 1;
+    flex: auto;
     margin-top: auto;
     resize: none;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+}
+
+.texture-viewer.collapsed .texture-atlas {
+    max-height: 0;
+    opacity: 0;
+    padding: 0 var(--gap-size);
+    overflow: hidden;
 }
 
 .xmlEditor {
