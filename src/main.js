@@ -97,11 +97,17 @@ function updateXMLData() {
 function startCounter() {
     domUtils.hideElement(domUtils.buttons.startCountBtn)
     domUtils.showElement(domUtils.buttons.stopCountBtn)
+
+    const { countStart, countEnd, prefix, decimals, rate } = domUtils.inputs
+
+    pixiUtils.startCounter(countStart.value, countEnd.value, rate.value, decimals.value, prefix.value)
 }
 
 function stopCounter() {
     domUtils.hideElement(domUtils.buttons.stopCountBtn)
     domUtils.showElement(domUtils.buttons.startCountBtn)
+
+    pixiUtils.endCounter()
 }
 
 (async () => {

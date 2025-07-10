@@ -8,6 +8,9 @@ export class DOMUtils {
             size: document.getElementById('sizeInput'),
             decimals: document.getElementById('decimalInput'),
             prefix: document.getElementById('prefixInput'),
+            rate: document.getElementById('rateInput'),
+            countStart: document.getElementById('startInput'),
+            countEnd: document.getElementById('endInput'),
         }
 
         this.outputs = {

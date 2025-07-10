@@ -88,6 +88,7 @@ body {
     border: solid 1px var(--border-muted);
     border-radius: 5px;
     flex-direction: column;
+    resize: none;
 }
 
 .window-header {
@@ -107,6 +108,7 @@ body {
     padding: var(--gap-size);
     flex: 1;
     gap: var(--gap-size);
+    resize: none;
 }
 
 .pixiView {
@@ -129,6 +131,8 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
+    height: 100%;
+    overflow: hidden;
 }
 
 .texture-atlas img {
@@ -139,12 +143,17 @@ body {
     max-height: 100%;
     object-fit: contain;
     box-shadow: 0 0 1rem 0.25rem var(--bg-dark);
+    width: auto;
+    height: auto;
 }
 
 .texture-viewer {
+    flex: 1;
     margin-top: auto;
-    resize: vertical;
-    overflow: visible;
+    resize: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .xmlEditor {
