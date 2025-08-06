@@ -37,10 +37,10 @@ export class DOMUtils {
     }
 
     collapseWindow() {
-        const windowHeaders = document.querySelectorAll('.window-header')
+        const collapseIndicators = document.querySelectorAll('.collapse-indicator')
 
-        windowHeaders.forEach(header => {
-            header.addEventListener('click', function () {
+        collapseIndicators.forEach(indicator => {
+            indicator.addEventListener('click', function () {
                 const window = this.closest('.window')
                 window.classList.toggle('collapsed')
             })

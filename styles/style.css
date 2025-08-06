@@ -105,9 +105,12 @@ body {
     padding: 3px 10px;
     border-bottom: solid 1px var(--border-muted);
     justify-content: space-between;
-    cursor: pointer;
     user-select: none;
     align-items: center;
+}
+
+.collapse-indicator {
+    cursor: pointer;
 }
 
 .window-header:hover {
