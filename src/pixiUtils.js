@@ -1,14 +1,17 @@
 import { Application, BitmapFont, BitmapText, Texture, Ticker } from 'pixi.js'
 
+const centerAlignments = ['center', 'justify']
+
 export class PixiUtils {
-    bitmapText
-    ticker
-    count = 0
-    countRate = 1
-    start = 0
-    end = 0
-    decimals = 2
-    prefix = ''
+    _bitmapText
+    _ticker
+    _count = 0
+    _countRate = 1
+    _start = 0
+    _end = 0
+    _decimals = 2
+    _prefix = ''
+    _alignment = 'left'
 
     constructor() {
         this.canvas = document.getElementById('pixiContainer')
@@ -24,17 +27,19 @@ export class PixiUtils {
 
         this.canvas.appendChild(this.app.view)
 
-        this.ticker = new Ticker()
-        this.ticker.add(this.counter.bind(this))
+        this._ticker = new Ticker()
+        this._ticker.add(this.counter.bind(this))
     }
 
-    async addBitmapText(text, bitmapFont, fontSize = 32) {
-        this.bitmapText = new BitmapText(text, {
+    async addBitmapText(text, bitmapFont, fontSize = 32, alignment = 'center') {
+        this._bitmapText = new BitmapText(text, {
             fontName: bitmapFont,
             fontSize: fontSize,
+            align: alignment,
         })
 
-        this.app.stage.addChild(this.centerComponent(this.bitmapText))
+        this._alignment = alignment
+        this.app.stage.addChild(this.centerComponent(this._bitmapText))
     }
 
     async loadBitmapFont(xmlDoc, imageURL) {
@@ -55,7 +60,7 @@ export class PixiUtils {
 
     clearCanvas() {
         this.endCounter()
-        this.bitmapText = undefined
+        this._bitmapText = undefined
         this.app.stage.removeChildren()
     }
 
@@ -67,35 +72,41 @@ export class PixiUtils {
         return this.app
     }
 
-    startCounter(startValue = this.start, endValue = this.end, rate = this.countRate, decimalPlaces = this.decimals, prefix = this.prefix) {
-        this.start = parseFloat(startValue)
-        this.end = parseFloat(endValue)
-        this.countRate = parseFloat(rate)
-        this.count = parseFloat(this.start)
-        this.decimals = parseInt(decimalPlaces)
-        this.prefix = prefix
-        this.ticker.start()
+    startCounter(startValue = this._start, endValue = this._end, rate = this._countRate, decimalPlaces = this._decimals, prefix = this._prefix) {
+        this._start = parseFloat(startValue)
+        this._end = parseFloat(endValue)
+        this._countRate = parseFloat(rate)
+        this._count = parseFloat(this._start)
+        this._decimals = parseInt(decimalPlaces)
+        this._prefix = prefix
+        this._ticker.start()
     }
 
     endCounter() {
-        this.ticker.stop()
+        this._ticker.stop()
     }
 
     counter() {
-        console.log(`Delta Time: ${this.ticker.deltaTime}`)
-        this.count += parseFloat(this.ticker.deltaTime) * this.countRate
-        this.bitmapText.text = this.formatNumberText(this.count)
+        this._count += parseFloat(this._ticker.deltaTime / 60) * this._countRate
+        this._bitmapText.text = `${this._prefix}${this.formatNumberText(this._count)}`
 
-        if (this.count > this.end) {
+        if (this._count > this._end) {
             this.endCounter()
+            this._bitmapText.text = `${this._prefix}${this.formatNumberText(this._end)}`
         }
+
+        this._shouldCenterComponent() && this.centerComponent(this._bitmapText)
     }
 
     formatNumberText(num) {
         num = parseFloat(num)
-        const roundedString = num.toFixed(this.decimals)
+        const roundedString = num.toFixed(this._decimals)
         const [integerPart, decimalPart] = roundedString.split('.')
         const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
         return decimalPart ? `${formattedInteger}.${decimalPart}` : formattedInteger
+    }
+
+    _shouldCenterComponent() {
+        return centerAlignments.includes(this._alignment)
     }
 }

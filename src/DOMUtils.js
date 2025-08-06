@@ -11,6 +11,7 @@ export class DOMUtils {
             rate: document.getElementById('rateInput'),
             countStart: document.getElementById('startInput'),
             countEnd: document.getElementById('endInput'),
+            textAlign: document.getElementById('alignSelect'),
         }
 
         this.outputs = {

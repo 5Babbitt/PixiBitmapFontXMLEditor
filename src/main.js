@@ -47,6 +47,7 @@ domUtils.buttons.update.addEventListener('click', updateBitmapText)
 domUtils.inputs.text.addEventListener('input', updateBitmapText)
 domUtils.inputs.size.addEventListener('input', updateBitmapText)
 domUtils.inputs.colour.addEventListener('input', updateBitmapText)
+domUtils.inputs.textAlign.addEventListener('input', updateBitmapText)
 
 //Export
 domUtils.buttons.export.addEventListener('click', exportXMLFile)
@@ -84,8 +85,9 @@ async function updateBitmapText() {
     const fontName = await pixiUtils.loadBitmapFont(xmlDocument, imgURL)
     const text = domUtils.inputs.text.value
     const fontSize = domUtils.inputs.size.value
+    const alignment = domUtils.inputs.textAlign.value
 
-    await pixiUtils.addBitmapText(text, fontName, fontSize)
+    await pixiUtils.addBitmapText(text, fontName, fontSize, alignment)
 }
 
 function exportXMLFile() {
